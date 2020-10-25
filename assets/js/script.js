@@ -11,39 +11,26 @@ $(".date").append(today);
 
 // WHEN I view the time blocks for that day
 // THEN each time block is color - coded to indicate whether it is in the past, present, or future
-// var auditTask = function (taskEl) {
-//   // get time from time element
-//   var date = $(taskEl).find(".time").text().trim();
-//   // ensure it worked
-//   console.log(date);
-
-//   // convert to moment object at 5:00pm
-//   var time = moment(date, "L").set("hour", 17);
-//   // this should print out an object for the value of the date variable, but at 5:00pm of that date
-//   console.log(time);
-
-//   // apply new class if task is near/over due date
-//   if (moment().isAfter(time)) {
-//     $(taskEl).addClass("list-group-item-danger");
-//   }
-
-// };
-
-// check due date
-// auditTask(taskLi);
-
-//var timeBlocks = // array?
-var currentTime = moment().format('LT');
-console.log(currentTime);
-function timeColor() {
-  // remove any old classes from element
-  $(taskEl).removeClass("text-item-bg-light");
-
-  if (moment().isAfter(time)) {
-    $(taskEl).addClass("text-item-danger");
-  }
-};
-
+//var fullDay = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"];
+var colorcode = document.getElementsByClassName("colorcode");
+var currentHour = moment().hour();
+$(".colorcode")
+  .each(function () {
+    var val = parseInt($(this).prop('id'));
+    console.log(val, typeof val, currentHour);
+    if (val < currentHour) {
+      $(this).next("textarea").addClass("past");
+      console.log("past");
+    }
+    else if (val > currentHour) {
+      $(this).next("textarea").addClass("future");
+      console.log("future");
+    }
+    else {
+      $(this).next("textarea").addClass("present");
+      console.log("present");
+    }
+  });
 
 
 // WHEN I click into a time block
