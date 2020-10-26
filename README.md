@@ -5,6 +5,7 @@ This site was built using [GitHub Pages](https://kfreeborg.github.io/daily-plann
 
 ## Usage
 This is to be used as a daily work planner to keep all meetings and daily activities organized.
+![Getting Started](/assets/images/Capture.JPG)
 
 ## Third Party Assets:
 
